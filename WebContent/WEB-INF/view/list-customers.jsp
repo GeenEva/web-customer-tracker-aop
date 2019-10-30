@@ -29,6 +29,7 @@
 	
 	<div id="container">
 		<div id="content">
+		
 			<!-- Add the add-customer button -->
 			<input type="button" value="Add Customer"
 				onclick="window.location.href='showFormForAdd'; return false;"
@@ -53,7 +54,7 @@
 				<c:forEach var="tempCustomer" items="${customers}">
 				
 				<!-- Construct an update link with customer id -->
-				<c:url var="updateLink" value="customer/showFormForUpdate">
+				<c:url var="updateLink" value="/customer/showFormForUpdate">
 					<c:param name="customerId" value="${tempCustomer.id }" />
 				</c:url>
 				

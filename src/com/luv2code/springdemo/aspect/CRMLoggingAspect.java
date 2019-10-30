@@ -1,9 +1,10 @@
 package com.luv2code.springdemo.aspect;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -37,7 +38,13 @@ public class CRMLoggingAspect {
 		
 		String method = theJoinPoint.getSignature().toShortString();
 		
-		myLogger.info(method);
+		myLogger.info("\n======> In @Before: " + method);
+		
+		Object [] args = theJoinPoint.getArgs();
+		
+		for(Object tempArg:args) {
+			myLogger.info("\n ====> argument: " + tempArg);
+		}
 	}
 	
 }
